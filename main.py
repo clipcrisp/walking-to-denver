@@ -1,19 +1,24 @@
-import pygame
+import pygame as pg
 
-pygame.init()
-screen = pygame.display.set_mode((1280, 720))
-clock = pygame.time.Clock()
+pg.init()
+screen = pg.display.set_mode((1280, 720))
+clock = pg.time.Clock()
 running = True
 
 while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
             running = False
 
-    screen.fill("purple")
+    screen.fill("black")
 
-    pygame.display.flip()
+    notofont = pg.Font("./assets/NotoSans-Regular.ttf", 18)
 
-    clock.tick(60)
+    img = notofont.render("That boy ain't right.", False, "white")
+    screen.blit(img, (20,20))
 
-pygame.quit()
+    pg.display.flip()
+
+    dt = clock.tick(60) / 1000
+
+pg.quit()
