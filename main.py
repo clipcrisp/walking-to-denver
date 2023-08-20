@@ -1,14 +1,18 @@
 import pygame as pg
 
+def input_controller():
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
+            return False
+    return True
+
 pg.init()
 screen = pg.display.set_mode((1280, 720))
 clock = pg.time.Clock()
 running = True
 
 while running:
-    for event in pg.event.get():
-        if event.type == pg.QUIT:
-            running = False
+    running = input_controller()
 
     screen.fill("black")
 
@@ -22,3 +26,4 @@ while running:
     dt = clock.tick(60) / 1000
 
 pg.quit()
+
